@@ -38,3 +38,31 @@ src/
 resources/
  ├── config.properties.example   # Template config (no real keys!)
  └── config.properties           # (local only, ignored by git)
+
+```
+## Setup
+
+1. Prereqs
+- Java 17+
+- Maven
+- Spotify Developer account
+- MusicAPI.ai account (for Suno-style generation)
+
+2. Configure API keys
+
+- Copy the example config:
+```text
+cp src/main/resources/config.properties.example \
+   src/main/resources/config.properties
+```
+- Edit src/main/resources/config.properties and fill in your keys:
+```text
+# Spotify client credentials
+spotify.clientId=YOUR_SPOTIFY_CLIENT_ID
+spotify.clientSecret=YOUR_SPOTIFY_CLIENT_SECRET
+
+# MusicAPI.ai (Suno-style) – Bearer token
+suno.baseUrl=https://api.musicapi.ai
+suno.apiKey=YOUR_MUSICAPI_BEARER_TOKEN
+```
+
