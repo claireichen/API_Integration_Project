@@ -76,11 +76,11 @@ mvn clean test
 You should see all tests pass (11 tests). 
 
 4. Run
-From IntelliJ IDEA (recommended):
- 1. Open the project as a Maven project.
- 2. Ensure Main is the run configuration
-    - Right-click org.example.Main -> Run 'Main.main()'.
- 3. The MuseMix window should appear.
+ From IntelliJ IDEA (recommended):
+  1. Open the project as a Maven project.
+  2. Ensure Main is the run configuration
+     - Right-click org.example.Main -> Run 'Main.main()'.
+  3. The MuseMix window should appear.
 
 ---
 
@@ -91,6 +91,7 @@ Spotify Recommendations
   - Mood - e.g., "lofi chill", "focus", "happy"
   - Genre - e.g., "jazz", "rock", "classical"
   - Artist - e.g., "Taylor Swift"
+  
 AI Music Generation (MusicAPI/Suno)
 - Generation tab:
   - Prompt text (description/lyrics)
@@ -99,12 +100,14 @@ AI Music Generation (MusicAPI/Suno)
 - Uses MusicAPI.ai's Sonic endpoints
 - Displays status and a clickable link:
   - Click the link to open the generated MP3 in your browser
+    
 Save/Load Sessions
 - Save the current session (query + track results) to a JSON file
 - Load a session back:
   - Restores search fields
   - Repopulates the results table
 - Implemented with SessionPersistenceService using Gson
+  
 Async & Error Handling
 - All API calls are wrapped in SwingWorker:
   - UI stays responsive (no frozen window)
