@@ -111,4 +111,36 @@ Async & Error Handling
 - All API calls are wrapped in SwingWorker:
   - UI stays responsive (no frozen window)
   - Status bar shows progress
-- Errors are propagated through the Observer event system and shown in the status bar (and can be extended to show dialogs). 
+- Errors are propagated through the Observer event system and shown in the status bar (and can be extended to show dialogs).
+
+---
+
+## Design Patterns
+
+Singleton - APIClient
+- Single shared HTTP client _ configuration loader.
+- Handles Spotify token refresh and generic GET/POST helpers.
+
+Strategy - RecommendationStrategy, MusicGenerationStrategy
+- MoodRecommendationStrategy, GenreRecommendationStrategy, ArtistSeedRecommendationStrategy implement recommendation behaviors.
+- InstrumentalGenerationStrategy encapsulates the MusicAPI generation logic.
+- MainController selects strategies based on enums instead of if ladders.
+
+Factory - MusicServiceFactory
+- createRecommendationStrategy(RecommendationMode mode)
+- createGenerationStrategy(GenerationMode mode)
+- Cleanly maps modes (MOOD/GENRE/ARTIST/INSTRUMENTAL) to concrete strategies.
+
+Observer - MusicEventSource / MusicEventListener
+- MainController fires MusicEvent instances (STARTED/COMPLETED/ERROR).
+- MainFrame and panels listen and update the UI.
+- Decouples async tasks from view components.
+
+MVC 
+- Model: AppModel, Track, UserQuery, Session, GenerationResult...
+- View: MainFrame, SearchPanel, ResultPanel, GenerationPanel, StatusBar.
+- Controller: MainController coordinates model, services, and views.
+
+---
+
+## Demo
