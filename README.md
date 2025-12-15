@@ -1,18 +1,40 @@
 # MuseMix – Music Recommender & Generator
 
-## Setup
+A desktop music tool built with Java Swing that:
 
-1. **Clone repo** and open in IntelliJ / your IDE.
-2. Create `src/main/resources/config.properties` (not committed) based on `config.properties.example`:
-   - Get a **Spotify** Client ID/Secret from the [Spotify Developer Dashboard].
-   - Get a **MusicAPI (Suno)** bearer token from https://musicapi.ai dashboard.
-3. Fill in:
-   - `spotify.clientId=...`
-   - `spotify.clientSecret=...`
-   - `suno.baseUrl=https://api.musicapi.ai`
-   - `suno.apiKey=YOUR_MUSICAPI_TOKEN`
-4. Build & run:
+- Recommends Spotify tracks by **mood**, **genre**, or **artist**
+- Generates **AI instrumental tracks** using a Suno-style API (MusicAPI.ai)
+- Lets you **save & load sessions** so you can revisit playlists later
 
-   ```bash
-   mvn clean package
-   mvn exec:java -Dexec.mainClass="org.example.Main"
+---
+
+## Tech Stack
+
+- Java 17
+- Swing (GUI)
+- Maven
+- Spotify Web API (Client Credentials flow)
+- MusicAPI.ai (Suno / Sonic model)
+- Gson (JSON parsing)
+- JUnit 5 (testing)
+- Design patterns: **Strategy, Factory, Singleton, Observer, MVC**
+
+---
+
+## Project Structure
+
+```text
+src/
+ └── main/java/org/example
+     ├── controller/        # Controllers + event system (Observer)
+     ├── model/             # Domain models + strategies + singleton APIClient
+     ├── service/           # API services + factory
+     ├── view/              # Swing UI (MVC views)
+     └── Main.java          # App entry point
+
+src/
+ └── test/java/org/example  # JUnit 5 tests
+
+resources/
+ ├── config.properties.example   # Template config (no real keys!)
+ └── config.properties           # (local only, ignored by git)
