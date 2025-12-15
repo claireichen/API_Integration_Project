@@ -75,12 +75,11 @@ mvn clean test
 ```
 You should see all tests pass (11 tests). 
 
-4. Run
- From IntelliJ IDEA (recommended):
-  1. Open the project as a Maven project.
-  2. Ensure Main is the run configuration
+4. Run from IntelliJ IDEA (recommended):
+   - Open the project as a Maven project.
+   - Ensure Main is the run configuration
      - Right-click org.example.Main -> Run 'Main.main()'.
-  3. The MuseMix window should appear.
+   - The MuseMix window should appear.
 
 ---
 
